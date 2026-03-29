@@ -2,9 +2,10 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Radio Asfixiats - En Direct</title>
+    <title>Radio Asfixiats</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+    
         body {
             margin: 0;
             font-family: Arial, sans-serif;
@@ -14,14 +15,27 @@
             flex-direction: column;
             min-height: 100vh;
         }
+
         header {
-            background: #2F3542;
-            padding: 20px;
+            padding: 25px;
             text-align: center;
-            color: white;
-            font-size: 1.8rem;
-            font-weight: bold;
         }
+
+        header .pulse {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #ff0033;
+            text-shadow: 0 0 10px #ff0033, 0 0 20px #ff0033, 0 0 30px #ff0033;
+            display: inline-block;
+            animation: pulse 1.2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.05); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
         main {
             flex: 1;
             display: flex;
@@ -29,20 +43,25 @@
             align-items: center;
             padding: 30px;
         }
+
         .player-box {
             background: #222;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0,0,0,0.4);
             text-align: center;
+            max-width: 95vw;
         }
+
         iframe {
             border: none;
-            width: 275px;
-            height: 365px;
+            width: 350px;
+            max-width: 90vw;
+            height: 450px;
             border-radius: 5px;
             box-shadow: 0px 0px 20px rgba(0,0,0,0.3);
         }
+
         footer {
             background: #2F3542;
             color: #ddd;
@@ -50,23 +69,37 @@
             padding: 10px;
             font-size: 0.9rem;
         }
+
     </style>
 </head>
 <body>
 
 <header>
-    🎧 Radio Asfixiats – En Direct
+    <span class="pulse">🎧 Radio Asfixiats</span>
 </header>
 
 <main>
     <div class="player-box">
-        <!-- Ton lecteur RadioKing -->
-        <iframe src="https://player.radioking.io/radio-asfixiats/?c=%232F3542&c2=%23ffffff&f=v&i=1&p=1&s=1&alb=1&li=1&popup=1&plc=1&h=365&l=undefined&v=2"></iframe>
+
+        <!-- Lector RadioKing -->
+        <iframe src="https://player.radioking.io/radio-asfixiats1/?c=%232F3542&c2=%23ffffff&f=v&i=1&p=1&s=1&alb=1&li=1&popup=1&plc=1&h=365&v=2"></iframe>
         <script type="text/javascript" src="https://player.radioking.io/scripts/iframe.bundle.js"></script>
 
         <p style="margin-top:15px; color:#ccc;">
-            Si le lecteur ne démarre pas, recharge la page.
+            Si el lector no se inicia, recarga la página.
         </p>
+
+        <!-- Icono Facebook separado -->
+        <a href="https://www.facebook.com/groups/931229123027533/" target="_blank" rel="noopener noreferrer"
+           style="display:inline-block; margin-top:25px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" 
+                 alt="Facebook" width="40" height="40" style="border-radius:5px;">
+        </a>
+
+        <!-- Widget Musique en cours (con pochette) -->
+        <div id="rk-current-track-widget" data-id="radio-asfixiats1" data-buy="0"></div>
+        <script type="text/javascript" src="https://widget.radioking.io/current-track/build/script.min.js"></script>
+
     </div>
 </main>
 
@@ -80,3 +113,4 @@
 
 </body>
 </html>
+
